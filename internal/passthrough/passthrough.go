@@ -15,7 +15,7 @@ import (
 func Exec(toolName string, args []string) int {
 	realPath, err := lookup.FindReal(toolName)
 	if err != nil {
-		os.Stderr.WriteString("sleight-of-hand: cannot find real " + toolName + ": " + err.Error() + "\n")
+		_, _ = os.Stderr.WriteString("sleight-of-hand: cannot find real " + toolName + ": " + err.Error() + "\n")
 		return 127
 	}
 
@@ -30,7 +30,7 @@ func Exec(toolName string, args []string) int {
 	go func() {
 		for sig := range sigCh {
 			if cmd.Process != nil {
-				cmd.Process.Signal(sig)
+				_ = cmd.Process.Signal(sig)
 			}
 		}
 	}()
