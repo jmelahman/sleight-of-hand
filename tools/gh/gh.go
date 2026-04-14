@@ -3,6 +3,7 @@ package gh
 import (
 	"os"
 
+	"github.com/jmelahman/sleight-of-hand/internal/completion"
 	"github.com/jmelahman/sleight-of-hand/internal/passthrough"
 	"github.com/jmelahman/sleight-of-hand/tools/gh/pr"
 	"github.com/spf13/cobra"
@@ -25,6 +26,8 @@ func newGhCmd() *cobra.Command {
 		SilenceErrors:      true,
 		SilenceUsage:       true,
 		DisableFlagParsing: true,
+		TraverseChildren:   true,
+		ValidArgsFunction:  completion.ValidArgsFromReal("gh"),
 		RunE: func(c *cobra.Command, args []string) error {
 			os.Exit(passthrough.Exec("gh", args))
 			return nil

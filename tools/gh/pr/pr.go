@@ -3,6 +3,7 @@ package pr
 import (
 	"os"
 
+	"github.com/jmelahman/sleight-of-hand/internal/completion"
 	"github.com/jmelahman/sleight-of-hand/internal/passthrough"
 	"github.com/spf13/cobra"
 )
@@ -16,6 +17,7 @@ func NewPrCmd() *cobra.Command {
 		SilenceErrors:      true,
 		SilenceUsage:       true,
 		DisableFlagParsing: true,
+		ValidArgsFunction:  completion.ValidArgsFromReal("gh", "pr"),
 		RunE: func(c *cobra.Command, args []string) error {
 			os.Exit(passthrough.Exec("gh", append([]string{"pr"}, args...)))
 			return nil
