@@ -1,5 +1,11 @@
 # sleight-of-hand
 
+[![Test status](https://github.com/jmelahman/sleight-of-hand/actions/workflows/test.yml/badge.svg)](https://github.com/jmelahman/sleight-of-hand/actions)
+[![Deploy Status](https://github.com/jmelahman/sleight-of-hand/actions/workflows/release.yml/badge.svg)](https://github.com/jmelahman/sleight-of-hand/actions)
+[![Go Reference](https://pkg.go.dev/badge/github.com/jmelahman/sleight-of-hand.svg)](https://pkg.go.dev/github.com/jmelahman/sleight-of-hand)
+[![PyPI](https://img.shields.io/pypi/v/sleight-of-hand.svg)](https://pypi.org/project/sleight-of-hand/)
+[![Go Report Card](https://goreportcard.com/badge/github.com/jmelahman/sleight-of-hand)](https://goreportcard.com/report/github.com/jmelahman/sleight-of-hand)
+
 A multicall CLI wrapper that transparently extends existing command-line tools
 with custom subcommands.
 
