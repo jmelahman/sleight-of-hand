@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs", "go-bin~=1.26.2", "manygo"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sleight-of-hand"
+description = "Multicall CLI wrapper that extends existing tools with custom subcommands"
+license = {file = "LICENSE"}
+authors = [{ name = "Jamison Lahman", email = "jamison@lahman.dev" }]
+readme = "README.md"
+requires-python = ">=3.6"
+keywords = [
+  "cli", "wrapper", "multicall", "proxy", "shim"
+]
+classifiers = [
+    "Programming Language :: Go",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version"]
+
+
+[project.urls]
+Repository = "https://github.com/jmelahman/monorepo"
+
+[tool.hatch.build]
+include = ["go.mod", "go.sum", "**/*.go"]
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.custom]
+binary_name = "sleight-of-hand"
